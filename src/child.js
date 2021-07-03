@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Child = () => {
+
+    let Transaction
     return(
         <div className = "container">
             <h1>Expense Tracker </h1>
