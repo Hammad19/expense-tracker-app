@@ -16,7 +16,7 @@ const Child = () => {
             <ul className="transaction-list">
                 {transactions.map((transobj,index)=>{
                     return(
-                        <li>
+                        <li key = {index}>
                     <span>
                         {transobj.desc}
                     </span>
