@@ -1,10 +1,12 @@
 
 import './App.css';
+import Child from './child.js'
 
 function App() {
   return (
-    <div className="App">
-      <header>EXPENSE TRACKER BY HAMMAD WASEEM</header>
+    <div>
+      <Child/>
+      
       
     </div>
   );
