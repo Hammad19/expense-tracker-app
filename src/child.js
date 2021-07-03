@@ -1,12 +1,8 @@
 import React from 'react';
+import { TransactionContext } from './transactionContext';
 
 const Child = () => {
-    let transactions  =[
-        {amount: 500, desc: "Cash" },
-        {amount: -40, desc: "Book" },
-        {amount: -200, desc: "Camera" },
-
-    ]
+   let transactions = React.useContext(TransactionContext);
     return(
         <div className = "container">
             <h1>Expense Tracker </h1>
