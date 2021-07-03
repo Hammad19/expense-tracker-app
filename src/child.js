@@ -1,8 +1,12 @@
 import React from 'react';
 
 const Child = () => {
+    let transactions  =[
+        {amount: 500, desc: "Cash" },
+        {amount: -40, desc: "Book" },
+        {amount: -200, desc: "Camera" },
 
-    let Transaction
+    ]
     return(
         <div className = "container">
             <h1>Expense Tracker </h1>
@@ -14,32 +18,25 @@ const Child = () => {
             <h3>History</h3>
             <hr></hr>
             <ul className="transaction-list">
-                <li>
+                {transactions.map((transobj,index)=>{
+                    return(
+                        <li>
                     <span>
-                        Cash
+                        {transobj.desc}
                     </span>
                     <span>
-                        $500
+                        {transobj.amount}
                     </span>
+                    
                 </li>
-                <br></br>
-                <li>
-                    <span>
-                        Bill
-                    </span>
-                    <span>
-                        $200
-                    </span>
-                </li>
-                <br></br>
-                <li>
-                    <span>
-                        Camera
-                    </span>
-                    <span>
-                        $800
-                    </span>
-                </li>
+                
+
+                    )
+                })}
+            
+                
+                
+                
 
             </ul>
             <h3>Add New Transaction</h3>
