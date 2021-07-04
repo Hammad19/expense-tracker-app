@@ -40,7 +40,42 @@
   justify-content: space-between;
   background-color:white;
   padding: 10px;
-  margin: 8px 0;
+  margin: 8px 0 ;
   box-shadow: 0 0 10px gray;
 
 }
+
+.green{
+  color: lightgreen;
+
+}
+.orange{
+  color: orange;
+}
+
+.pink{
+  color: pink;
+
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: #e74c3c;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 2px 5px;
+  top: 60%;
+  left: -50px;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.transaction-list:hover .delete-btn {
+  opacity: 1;
+  
+}
+
+

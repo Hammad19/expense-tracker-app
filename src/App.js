@@ -1,11 +1,15 @@
 
 import './App.css';
-import Child from './child.js'
+import Container from './child.js';
+import { TransactionProvider } from './transactionContext';
 
 function App() {
   return (
     <div>
-      <Child/>
+      <TransactionProvider>
+        <Container/>
+      </TransactionProvider>
+      
       
       
     </div>
