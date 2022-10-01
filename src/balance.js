@@ -1,46 +1,45 @@
+import React from "react";
+import { TransactionContext } from "./transactionContext";
 
-import React from 'react';
-import { TransactionContext } from './transactionContext';
+const Balance = () => {
+  let { transaction, addTransaction, deleteTransaction } =
+    React.useContext(TransactionContext);
 
-
-const Balance = ()=>{
-    let {transactions,addTransaction,deleteTransaction} = React.useContext(TransactionContext);
-
-    const GetIncome=()=>
-    {
-        let income = 0
-        for (var i = 0 ; i < transactions.length;i ++)
-        {
-            if (transactions[i].amount> 0)
-            {
-                income += transactions[i].amount
-            }
-        }
-        return income;
+  const GetIncome = () => {
+    let income = 0;
+    for (var i = 0; i < transaction.length; i++) {
+      if (transaction[i].amount > 0) {
+        income += transaction[i].amount;
+      }
     }
+    return income;
+  };
 
-    const GetExpense=()=>
-    {
-     let expense = 0
-     for (var i = 0 ; i < transactions.length;i ++)
-     {
-         if (transactions[i].amount< 0)
-         {
-             expense += transactions[i].amount
-         }
-     }
-     return expense;
+  const GetExpense = () => {
+    let expense = 0;
+    for (var i = 0; i < transaction.length; i++) {
+      if (transaction[i].amount < 0) {
+        expense += transaction[i].amount;
+      }
     }
-    
-    return(
-        <div>
-        <h3 className="orange">Your Balance <br></br> {GetIncome()+GetExpense()}
+    return expense;
+  };
+
+  return (
+    <div>
+      <h3 className="orange">
+        Your Balance <br></br> {GetIncome() + GetExpense()}
+      </h3>
+      <div className="incexp-container">
+        <h3 className="green">
+          Income <br></br> {GetIncome()}
         </h3>
-        <div className = "incexp-container">
-        <h3 className="green">Income <br></br> {GetIncome()}</h3>
-        <h3 className="pink">Expense <br></br> {GetExpense()}</h3>
+        <h3 className="pink">
+          Expense <br></br> {GetExpense()}
+        </h3>
+      </div>
     </div>
-    </div>)
-}
+  );
+};
 
-export default Balance
+export default Balance;

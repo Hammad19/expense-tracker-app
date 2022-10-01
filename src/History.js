@@ -1,46 +1,37 @@
-import React from 'react';
-import { TransactionContext } from './transactionContext.js';
+import React, { useEffect } from "react";
+import { TransactionContext } from "./transactionContext.js";
 
-const History = ()=>
-{
-    let {transactions,addTransaction,deleteTransaction} = React.useContext(TransactionContext);
-   
-    const handleOnClick=(id)=>
-    {
-        deleteTransaction({
-            id: id
-        })
+const History = () => {
+  let { transaction, addTransaction, deleteTransaction } =
+    React.useContext(TransactionContext);
 
-    }
+  useEffect(() => {
+    console.log("transaction", transaction);
+  }, [transaction]);
 
-    return(
-        <div>
-        <h3>History</h3>
-        <hr></hr>
-        <ul className="transaction-list">        
-            {transactions.map((transobj,index)=>{
-                return(  
-                    <li key = {index}>  
-                <span>              
-                    {transobj.desc}
-                </span>
-                <span>
-                    {transobj.amount}
-                </span>
-                <button onClick={handleOnClick(index)} className ="delete-btn">X</button>              
-            </li>
-            
-            
+  return (
+    <div>
+      <h3>History</h3>
+      <hr></hr>
+      <ul className="transaction-list">
+        {transaction.length > 0 &&
+          transaction.map((transobj, index) => {
+            return (
+              <li key={index}>
+                <span>{transobj.desc}</span>
+                <span>{transobj.amount}</span>
+                <button
+                  className="delete-btn"
+                  onClick={() => deleteTransaction(transobj.id)}
+                >
+                  X
+                </button>
+              </li>
+            );
+          })}
+      </ul>
+    </div>
+  );
+};
 
-                )
-            })}
-        
-            
-            
-            
-
-        </ul>
-        </div>)
-}
-
-export default History
+export default History;
