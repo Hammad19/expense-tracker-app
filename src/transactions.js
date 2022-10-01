@@ -4,10 +4,11 @@ import { TransactionContext } from './transactionContext';
 const Transactions =()=>
 {
     let {transactions,addTransaction} = React.useContext(TransactionContext);
+    
    
 
     let[desc,setdes] = React.useState();
-   let[amount,setamount] = React.useState();
+    let[amount,setamount] = React.useState();
 
    const handleAddition= (event)=>
    {

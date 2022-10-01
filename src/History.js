@@ -3,29 +3,31 @@ import { TransactionContext } from './transactionContext.js';
 
 const History = ()=>
 {
-    let {transactions,addTransaction} = React.useContext(TransactionContext);
+    let {transactions,addTransaction,deleteTransaction} = React.useContext(TransactionContext);
    
+    const handleOnClick=(id)=>
+    {
+        deleteTransaction({
+            id: id
+        })
+
+    }
+
     return(
         <div>
         <h3>History</h3>
         <hr></hr>
-        <ul className="transaction-list">
-        
+        <ul className="transaction-list">        
             {transactions.map((transobj,index)=>{
-
-                return(
-                    
-                    <li key = {index}>
-                    
-                <span>
-                
+                return(  
+                    <li key = {index}>  
+                <span>              
                     {transobj.desc}
                 </span>
                 <span>
                     {transobj.amount}
                 </span>
-                <button className ="delete-btn">X</button>
-                
+                <button onClick={handleOnClick(index)} className ="delete-btn">X</button>              
             </li>
             
             

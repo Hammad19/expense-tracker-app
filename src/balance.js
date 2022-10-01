@@ -4,7 +4,7 @@ import { TransactionContext } from './transactionContext';
 
 
 const Balance = ()=>{
-    let {transactions,addTransaction} = React.useContext(TransactionContext);
+    let {transactions,addTransaction,deleteTransaction} = React.useContext(TransactionContext);
 
     const GetIncome=()=>
     {
